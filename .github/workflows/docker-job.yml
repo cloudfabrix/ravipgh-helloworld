@@ -1,0 +1,23 @@
+
+name: Hello from Docker (container job)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.11-slim   # whole job runs in this Docker image
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show Python version
+        run: python -V
+
+      - name: Run script
+        run: python src/hello.py
+
