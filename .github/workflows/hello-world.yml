@@ -3,9 +3,12 @@ name: Hello Python (Matrix)
 
 on:
   push:
-    branches:
-      - main           # change to your default branch if not 'main'
-  workflow_dispatch:   # lets you run it manually from the Actions tab
+    branches: ["main"]       # run on push to main
+  pull_request:
+    branches: ["main"]       # run on PRs targeting main
+  workflow_dispatch:          # allow manual run from Actions tab
+  schedule:
+    - cron: "0 0 * * *"      # run every day at 00:00 UTC
 
 jobs:
   hello:
