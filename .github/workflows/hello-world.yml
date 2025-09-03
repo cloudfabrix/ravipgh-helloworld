@@ -27,5 +27,5 @@ jobs:
         run: python -V
 
       - name: Run script
-        run: python hello.py
+        run: python src/hello.py
 
